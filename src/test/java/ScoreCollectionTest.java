@@ -17,15 +17,15 @@ class ScoreCollectionTest {
   @DisplayName("book 31p")
   @Test
   public void answersArithmeticMeanOfTwoNumbers() {
-    // prepare
+    // Arrange
     ScoreCollection collection = new ScoreCollection();
     collection.add(() -> 5);
     collection.add(() -> 7);
 
-    // executer
+    // Act
     int actualResult = collection.arithmeticMean();
 
-    // assert
+    // Assert
     Assert.assertEquals(actualResult, 6);
   }
 }
