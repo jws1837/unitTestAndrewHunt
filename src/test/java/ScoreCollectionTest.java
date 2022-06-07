@@ -1,8 +1,7 @@
+import org.junit.Assert;
 import org.junit.jupiter.api.*;
-
-import static org.junit.jupiter.api.Assertions.*;
-//JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
-//assert,assume, assertThrows
+// JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+// assert,assume, assertThrows
 class ScoreCollectionTest {
 
   @BeforeAll
@@ -11,21 +10,22 @@ class ScoreCollectionTest {
   @BeforeEach
   void setUp() {}
 
-//  @AfterAll
+  //  @AfterAll
   @AfterEach
   void tearDown() {}
 
-  @Disabled("Not implemented yet")
+  @DisplayName("book 31p")
   @Test
-  void test() {
-    fail("Not yet implemented");
+  public void answersArithmeticMeanOfTwoNumbers() {
+    // prepare
+    ScoreCollection collection = new ScoreCollection();
+    collection.add(() -> 5);
+    collection.add(() -> 7);
+
+    // executer
+    int actualResult = collection.arithmeticMean();
+
+    // assert
+    Assert.assertEquals(actualResult, 6);
   }
-
-  @Disabled("Not implemented yet")
-  @Test
-  void add() {}
-
-  @DisplayName("Single test successful")
-  @Test
-  void arithmeticMean() {}
 }
