@@ -4,9 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ProfileTest {
-/**
- * 코드가 상당히 김.
- * **/
+
   @Test
   public void matchAnswersFalseWhenMustMatchCriteriaNotMet() {
     // 지원자가 제출한 답안
@@ -24,5 +22,24 @@ public class ProfileTest {
     boolean matches = profile.matches(criteria);
 
     Assert.assertFalse(matches);
+  }
+
+  @Test
+  public void matchAnswersTrueForAnyDontCareCriteria() {
+    // 지원자가 제출한 답안
+    Profile profile = new Profile("카카오");
+    Question question = new BooleanQuestion(1, "우유 먹나요?");
+    Answer profileAnswer = new Answer(question, Bool.FALSE);
+    profile.add(profileAnswer);
+
+    // 회사가 추구하는 답안
+    Criteria criteria = new Criteria();
+    Answer criteriaAnswer = new Answer(question, Bool.TRUE);
+    Criterion criterion = new Criterion(criteriaAnswer, Weight.DontCare);
+    criteria.add(criterion);
+
+    boolean matches = profile.matches(criteria);
+
+    Assert.assertTrue(matches);
   }
 }
