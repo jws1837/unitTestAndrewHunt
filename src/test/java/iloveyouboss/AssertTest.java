@@ -72,12 +72,20 @@ public class AssertTest {
     @Test
     public void FloatPointTest() {
 //        assertThat(2.32 * 3, equalTo(6.96)); //fail
-        assertEquals(2.32 * 3, 6.96,0.000001); //success, delta는 오차
+        assertEquals(2.32 * 3, 6.96, 0.000001); //success, delta는 오차
     }
 
-    @Test(expected = InsufficientFundsException.class)
+    @Test
+//            (expected = InsufficientFundsException.class)
     public void throwsWhenWithdrwawingTooMuch() {
-        account.withdraw(100);
+        try {
+            account.withdraw(100);
+            fail(); //<<에러 안뜨는데?
+        } catch (InsufficientFundsException exception) {
+
+        }
     }
-    }
+
+
+}
 
