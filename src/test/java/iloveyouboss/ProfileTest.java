@@ -8,6 +8,9 @@ public class ProfileTest {
   private Profile profile;
   private BooleanQuestion question;
   private Criteria criteria;
+/***
+ * iloveyouboss_13(책에서제공하는예제) 테스트코드 7개 포함된 버전수록되어있음.
+ * */
 
   @Before
   public void create() {
