@@ -5,6 +5,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.io.*;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
@@ -99,5 +101,23 @@ public class AssertTest {
         account.withdraw(100);
 
     }
+
+    @Test
+    public void readsFromTestFile() throws IOException {
+        String filename = "test.txt";
+        BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
+        bw.write("hello world");
+        bw.close();
+
+
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        StringBuilder result = new StringBuilder();
+        String a = "";
+        result.append(br.readLine());
+        System.out.println(result);
+        br.close();
+    }
+
+
 }
 
