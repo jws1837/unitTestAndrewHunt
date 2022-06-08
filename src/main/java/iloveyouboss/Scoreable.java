@@ -1,3 +1,4 @@
+package iloveyouboss;
 
 @FunctionalInterface
 public interface Scoreable {

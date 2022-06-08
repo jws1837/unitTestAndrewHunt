@@ -1,3 +1,4 @@
+import iloveyouboss.ScoreCollection;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
 // JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
