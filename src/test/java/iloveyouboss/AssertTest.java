@@ -1,12 +1,17 @@
 package iloveyouboss;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 public class AssertTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     private Account account;
 
     class Account {
@@ -86,6 +91,13 @@ public class AssertTest {
         }
     }
 
+    @Test
+    public void expectionRule() {
+        thrown.expect(InsufficientFundsException.class);
+        thrown.expectMessage("balance only 0");
 
+        account.withdraw(100);
+
+    }
 }
 
