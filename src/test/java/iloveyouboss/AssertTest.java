@@ -1,6 +1,7 @@
 package iloveyouboss;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -116,6 +117,12 @@ public class AssertTest {
         result.append(br.readLine());
         System.out.println(result);
         br.close();
+    }
+
+    @Test
+    @Ignore("don't forget me!")
+    public void somethingWeCannotHandleRightNow() {
+        // ...
     }
 
 
